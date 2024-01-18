@@ -20,7 +20,7 @@ public class ReportingResource {
 
 	@GET
 	@Path("/manager")
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces("application/json")
 	public Response createManagerReport() {
 		try {
 			//TODO: Might need to be a list instead, don't know how this will look
@@ -36,7 +36,7 @@ public class ReportingResource {
 
 	@GET
 	@Path("/customer/{customerId}")
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces("application/json")
 	public Response createCustomerReport(@PathParam("customerId") String customerId) {
 		try {
 			List<CustomerReportDTO> report = service.createCustomerReport(customerId).get();
@@ -51,7 +51,7 @@ public class ReportingResource {
 
 	@GET
 	@Path("/merchant/{merchantId}")
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces("application/json")
 	public Response createMerchantReport(@PathParam("merchantId") String merchantId) {
 		try {
 			List<MerchantReportDTO> report = service.createMerchantReport(merchantId).get();
