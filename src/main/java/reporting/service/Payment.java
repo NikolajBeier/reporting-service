@@ -9,6 +9,7 @@ public class Payment {
     String merchantBankId;
     String customerBankId;
 
+
     public Payment() {
     }
 
