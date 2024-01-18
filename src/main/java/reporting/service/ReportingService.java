@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class ReportingService {
 
-    //TODO: consider changing syncronized of methods, it is not scalable or Concurrent, maybe request id method or something else
+    //TODO: consider changing synchronized of methods, it is not scalable or Concurrent, maybe request id method or something else
 
     private MessageQueue queue;
     private CompletableFuture<List<Payment>> paymentsFuture = new CompletableFuture<>();
@@ -62,13 +62,13 @@ public class ReportingService {
         );
     }
 
-    private synchronized void requestPaymentsList() {
+    public synchronized void requestPaymentsList() {
         paymentsFuture = new CompletableFuture<>(); // Reset the future for a new request
         Event requestEvent = new Event("GetPaymentsRequest", new Object[]{});
         queue.publish(requestEvent);
     }
 
-    private synchronized void handlePaymentsList(Event event) {
+    public synchronized void handlePaymentsList(Event event) {
         List<Payment> paymentsList = event.getArgument(0, List.class);
         paymentsFuture.complete(paymentsList);
     }
