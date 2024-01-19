@@ -17,6 +17,3 @@ Feature: Report Generation
     Then a GetPaymentsRequest event is sent to the PaymentService
     Then a list of payments is received
     Then a MerchantReport is generated and is returned to the merchant
-
-
-
