@@ -3,4 +3,12 @@ services:
   reporting-service:
     image: reporting-service
     build: .
+    ports:
+      - "8181:8181"
+    networks:
+      - system-test_dtupay-network
+
+networks:
+    system-test_dtupay-network:
+      external: true
  
