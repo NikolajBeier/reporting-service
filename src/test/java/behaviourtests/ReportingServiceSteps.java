@@ -40,7 +40,7 @@ public class ReportingServiceSteps {
     ReportingService service = new ReportingService(q);
 
     @Given("a manager report generation request and some payments in the repository")
-    public void a_request_is_received() {
+    public void a_manager_report_generation_request_and_some_payments_in_the_repository() {
         // create is called directly in rest so no need to emulate rest call, just emulate repo
         RepoPayments = new ArrayList<>();
 

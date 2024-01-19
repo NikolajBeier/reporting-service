@@ -1,0 +1,36 @@
+---
+openapi: 3.0.3
+info:
+  title: Reporting API
+  version: "1.0"
+paths:
+  /reports/customer/{customerId}:
+    get:
+      parameters:
+      - name: customerId
+        description: "returns all payments relevant to the customer "
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /reports/manager:
+    get:
+      description: "returns all payments"
+      responses:
+        "200":
+          description: OK
+  /reports/merchant/{merchantId}:
+    get:
+      parameters:
+      - name: merchantId
+        description: "returns all payments relevant to the Merchant "
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
