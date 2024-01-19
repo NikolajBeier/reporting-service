@@ -69,7 +69,7 @@ public class ReportingService {
     }
 
     public synchronized void handlePaymentsList(Event event) {
-        List<Payment> paymentsList = event.getArgument(0, List.class);
+        List<Payment> paymentsList = event.getArgument(0, ArrayList.class);
         paymentsFuture.complete(paymentsList);
     }
 }

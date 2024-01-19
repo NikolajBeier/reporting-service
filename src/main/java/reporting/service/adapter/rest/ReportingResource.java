@@ -23,14 +23,12 @@ public class ReportingResource {
 	@Produces("application/json")
 	public Response createManagerReport() {
 		try {
+			ManagerReport report = service.createManagerReport().join();
 			//TODO: Might need to be a list instead, don't know how this will look
-			ManagerReport report = service.createManagerReport().get();
 			return Response.ok(report).build();
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			Thread.currentThread().interrupt();
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Interrupted while processing").build();
-		} catch (ExecutionException e) {
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error in processing report").build();
 		}
 	}
 
